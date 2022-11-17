@@ -9,7 +9,6 @@
 #import "YCContainerBaseController.h"
 #import "YCBaseContainerAgentDelegate.h"
 #import "YCDynamicBaseContainerSectionConfigProtocol.h"
-#import <Masonry.h>
 
 @interface YCContainerBaseController ()<YCBaseContainerAgentDelegate>
 
@@ -25,11 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.containerManager.tableView];
-    [self.containerManager.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
-        make.top.equalTo(self.view);
-        make.bottom.equalTo(self.view);
-    }];
+    self.containerManager.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 
 }
 

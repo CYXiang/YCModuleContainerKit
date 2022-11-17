@@ -8,7 +8,6 @@
 
 #import "YCPaddingTableViewCell.h"
 #import "UITableView+WGEasyRegister.h"
-#import <Masonry.h>
 
 @interface YCPaddingTableViewCell ()
 
@@ -27,10 +26,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
 
         [self.contentView addSubview:self.paddingContentView];
-        
-        [self.paddingContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.right.bottom.equalTo(self.contentView);
-        }];
+        self.paddingContentView.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
     }
     return self;
 }
@@ -56,12 +52,7 @@
 - (void)setCellEdgeInsets:(UIEdgeInsets)insets {
     _paddingViewEdge = insets;
     
-    [self.paddingContentView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(insets.top);
-        make.left.equalTo(self.contentView).offset(insets.left);
-        make.right.equalTo(self.contentView).offset(-insets.right);
-        make.bottom.equalTo(self.contentView).offset(-insets.bottom);
-    }];
+    self.paddingContentView.frame = CGRectMake(insets.left, insets.top, self.contentView.frame.size.width - insets.left - insets.right, self.contentView.frame.size.height + insets.top + insets.bottom);
 }
 
 - (void)responseTarget:(id)sectionAgent {

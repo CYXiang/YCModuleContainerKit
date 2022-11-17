@@ -7,8 +7,6 @@ target 'YCModuleContainerKitDemo' do
 
   # Pods for YCModuleContainerKitDemo
   
-  pod 'Masonry'
-
   target 'YCModuleContainerKitDemoTests' do
     inherit! :search_paths
     # Pods for testing

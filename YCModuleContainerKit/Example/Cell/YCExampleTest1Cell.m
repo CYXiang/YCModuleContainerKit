@@ -8,7 +8,6 @@
 
 #import "YCExampleTest1Cell.h"
 #import "UIResponder+WGRouter.h"
-#import <Masonry.h>
 
 @interface YCExampleTest1Cell ()
 
@@ -55,11 +54,8 @@
     CGSize titleSize = [title sizeWithFont:self.titleLabel.font];
     self.titleLabel.frame = CGRectMake(40, 24, maxTitleWidth, titleSize.height);
     CGFloat containerViewHeight = CGRectGetMaxY(self.titleLabel.frame)+16;
-    
-    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.paddingContentView);
-        make.height.equalTo(@(containerViewHeight));
-    }];
+
+    self.containerView.frame = CGRectMake(0, 0, self.paddingContentView.frame.size.width, containerViewHeight);
 }
 
 - (void)updateViews
@@ -84,10 +80,9 @@
     [self.separatViews removeAllObjects];
     
     CGFloat containerViewHeight = CGRectGetMaxY(self.lastView.frame)+24;
-    [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(containerViewHeight));
-    }];
-    
+
+    self.containerView.frame = CGRectMake(0, 0, self.paddingContentView.frame.size.width, containerViewHeight);
+
 }
 
 
