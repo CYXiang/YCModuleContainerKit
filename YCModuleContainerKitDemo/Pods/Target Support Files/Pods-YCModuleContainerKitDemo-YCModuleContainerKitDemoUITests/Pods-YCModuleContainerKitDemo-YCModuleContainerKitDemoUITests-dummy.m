@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_YCModuleContainerKitDemo_YCModuleContainerKitDemoUITests : NSObject
+@end
+@implementation PodsDummy_Pods_YCModuleContainerKitDemo_YCModuleContainerKitDemoUITests
+@end
