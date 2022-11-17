@@ -80,7 +80,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/CYXiang/YCModuleContainerKit.git", :tag => "v1.0.0" }
+  spec.source       = { :git => "https://github.com/CYXiang/YCModuleContainerKit.git", :tag => spec.version }
 
   spec.source_files  = "YCModuleContainerKit", "YCModuleContainerKit/**/*.{h,m}"
 
